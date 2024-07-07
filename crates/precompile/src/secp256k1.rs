@@ -19,7 +19,7 @@ mod secp256k1 {
         sig_plus_recid[..64].copy_from_slice(&sig.0);
         sig_plus_recid[64] = recid;
         // TODO: Can we clean up the interface for this logic?
-        let recovered_key = sp1_precompiles::secp256k1::ecrecover(&sig_plus_recid, msg)?;
+        let recovered_key = sp1_lib::secp256k1::ecrecover(&sig_plus_recid, msg)?;
 
         let mut hash = keccak256(&recovered_key[1..]);
 
