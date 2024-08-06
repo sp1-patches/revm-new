@@ -9,6 +9,9 @@
 [tg-url]: https://t.me/+Ig4WDWOzikA3MzA0
 [tg-badge]: https://img.shields.io/badge/chat-telegram-blue
 
+> [!WARNING]
+> This repository is archived and no longer maintained.
+
 **Rust Ethereum Virtual Machine**
 
 ![](./assets/revm-banner.png)
@@ -19,30 +22,30 @@ It passes all `ethereum/tests` test suites.
 
 Here is a list of guiding principles that Revm follows.
 
-* **EVM compatibility and stability** - this goes without saying but it is nice to put it here. In the blockchain industry, stability is the most desired attribute of any system.
-* **Speed** - is one of the most important things and most decisions are made to complement this.
-* **Simplicity** - simplification of internals so that it can be easily understood and extended, and interface that can be easily used or integrated into other projects.
-* **interfacing** - `[no_std]` so that it can be used as wasm lib and integrate with JavaScript and cpp binding if needed.
+- **EVM compatibility and stability** - this goes without saying but it is nice to put it here. In the blockchain industry, stability is the most desired attribute of any system.
+- **Speed** - is one of the most important things and most decisions are made to complement this.
+- **Simplicity** - simplification of internals so that it can be easily understood and extended, and interface that can be easily used or integrated into other projects.
+- **interfacing** - `[no_std]` so that it can be used as wasm lib and integrate with JavaScript and cpp binding if needed.
 
 # Project
 
 Structure:
 
-* crates
-  * revm -> main EVM library.
-  * revm-primitives -> Primitive data types.
-  * revm-interpreter -> Execution loop with instructions
-  * revm-precompile -> EVM precompiles
-* bins:
-  * revme: cli binary, used for running state test jsons
+- crates
+  - revm -> main EVM library.
+  - revm-primitives -> Primitive data types.
+  - revm-interpreter -> Execution loop with instructions
+  - revm-precompile -> EVM precompiles
+- bins:
+  - revme: cli binary, used for running state test jsons
 
 This project tends to use the newest rust version, so if you're encountering a build error try running `rustup update` first.
 
 There were some big efforts on optimization of revm:
 
-* Optimizing interpreter loop: https://github.com/bluealloy/revm/issues/7
-* Introducing Bytecode format (and better bytecode analysis): https://github.com/bluealloy/revm/issues/121
-* Unification of instruction signatures: https://github.com/bluealloy/revm/pull/283
+- Optimizing interpreter loop: https://github.com/bluealloy/revm/issues/7
+- Introducing Bytecode format (and better bytecode analysis): https://github.com/bluealloy/revm/issues/121
+- Unification of instruction signatures: https://github.com/bluealloy/revm/pull/283
 
 # Building from source
 
@@ -69,9 +72,10 @@ run tests with command: `cargo run --release -- statetest tests/GeneralStateTest
 Benches can be found in [`crates/revm/benches`](./crates/revm/benches).
 
 Currently, available benches include the following.
-- *analysis*
-- *snailtracer*
-- *transfer*
+
+- _analysis_
+- _snailtracer_
+- _transfer_
 
 To run the `snailtracer` bench, execute the `cargo bench` subcommand below.
 
@@ -107,14 +111,14 @@ cargo run -p revm --features std,serde-json,ethersdb --example generate_block_tr
 
 # Used by:
 
-* [Foundry](https://github.com/foundry-rs/foundry) is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.
-* [Helios](https://github.com/a16z/helios) is a fully trustless, efficient, and portable Ethereum light client written in Rust.
-* [Reth](https://github.com/paradigmxyz/reth) Modular, contributor-friendly and blazing-fast implementation of the Ethereum protocol
-* [Arbiter](https://github.com/primitivefinance/arbiter) is a framework for stateful Ethereum smart-contract simulation
-* [Zeth](https://github.com/risc0/zeth) is an open-source ZK block prover for Ethereum built on the RISC Zero zkVM.
-* [VERBS](https://github.com/simtopia/verbs) an open-source Ethereum agent-based modelling and simulation library with a Python API.
-* [Hardhat](https://github.com/NomicFoundation/hardhat) is a development environment to compile, deploy, test, and debug your Ethereum software.
-* ...
+- [Foundry](https://github.com/foundry-rs/foundry) is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.
+- [Helios](https://github.com/a16z/helios) is a fully trustless, efficient, and portable Ethereum light client written in Rust.
+- [Reth](https://github.com/paradigmxyz/reth) Modular, contributor-friendly and blazing-fast implementation of the Ethereum protocol
+- [Arbiter](https://github.com/primitivefinance/arbiter) is a framework for stateful Ethereum smart-contract simulation
+- [Zeth](https://github.com/risc0/zeth) is an open-source ZK block prover for Ethereum built on the RISC Zero zkVM.
+- [VERBS](https://github.com/simtopia/verbs) an open-source Ethereum agent-based modelling and simulation library with a Python API.
+- [Hardhat](https://github.com/NomicFoundation/hardhat) is a development environment to compile, deploy, test, and debug your Ethereum software.
+- ...
 
 (If you want to add project to the list, ping me or open the PR)
 
